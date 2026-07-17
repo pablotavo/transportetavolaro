@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transporte Tavolaro | Distribución y transporte comercial</title>
+  <meta name="description" content="Transporte Tavolaro brinda soluciones de distribución y transporte para empresas, comercios y emprendedores.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --navy: #001f4e;
+      --graphite: #303437;
+      --orange: #ff9700;
+      --ink: #132033;
+      --muted: #667085;
+      --soft: #f4f7fb;
+      --line: #dde5ef;
+      --white: #ffffff;
+      --radius: 8px;
+      --shadow: 0 22px 60px rgba(0, 31, 78, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 74px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 230px;
+    }
+
+    .brand img { width: 86px; }
+
+    .brand strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--graphite);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-action {
+      padding: 12px 16px;
+      color: var(--white);
+      background: var(--navy);
+      border-radius: 6px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(0, 31, 78, 0.68) 0%, rgba(0, 31, 78, 0.32) 38%, rgba(0, 31, 78, 0.04) 72%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.00), rgba(0, 31, 78, 0.30)),
+        url("transporte-tavolaro-kangoo-ruta-detalle-puerta.png") center center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(0,31,78,0.28));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 40px));
+      min-height: calc(100vh - 74px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr);
+      align-content: end;
+      gap: 22px;
+      padding: 90px 0 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #dbe8f7;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 4px;
+      background: var(--orange);
+      transform: skewX(-18deg);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 5.6vw, 74px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #e5edf8;
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .hero-text-panel {
+      max-width: 720px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.42);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .button.primary {
+      background: var(--orange);
+      color: #241500;
+    }
+
+    .button.secondary {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.44);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      width: min(690px, 100%);
+      background: rgba(0,31,78,0.38);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-stats div {
+      min-height: 66px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.16);
+    }
+
+    .hero-stats strong {
+      display: block;
+      color: var(--white);
+      font-size: 24px;
+      line-height: 1;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+
+    .hero-stats span {
+      display: block;
+      margin-top: 9px;
+      color: rgba(255,255,255,0.86);
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    section { padding: 88px 0; }
+
+    .section-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.58fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      margin: 0 0 12px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    p { line-height: 1.7; }
+
+    .lead,
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .benefits {
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card,
+    .step-card,
+    .news-card,
+    .faq-item,
+    .quote-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .benefit-card {
+      min-height: 238px;
+      padding: 26px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 32px;
+      margin-bottom: 24px;
+      background: var(--orange);
+      transform: skewX(-18deg);
+    }
+
+    .benefit-card p,
+    .step-card p,
+    .news-card p,
+    .faq-item p,
+    .quote-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .how {
+      background: var(--white);
+    }
+
+    .how-title {
+      max-width: 820px;
+      margin-bottom: 38px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step-card {
+      padding: 26px;
+      min-height: 250px;
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 30px;
+      color: var(--orange);
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .about {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .about h2 { color: var(--white); }
+    .about .section-label { color: var(--orange); }
+    .about .lead { color: #d9e6f5; }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.74fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-panel {
+      padding: 34px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+    }
+
+    .about-panel img {
+      width: min(280px, 78%);
+      margin: 0 auto 28px;
+      border-radius: 6px;
+    }
+
+    .about-panel p {
+      margin: 0;
+      padding-left: 18px;
+      border-left: 5px solid var(--orange);
+      color: #eef4fb;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .news {
+      background: var(--soft);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .news-card {
+      overflow: hidden;
+    }
+
+    .news-visual {
+      height: 150px;
+      margin: 0;
+      background: #d9e2ef;
+    }
+
+    .news-visual img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .news-card div:last-child {
+      padding: 24px;
+    }
+
+    .date {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px 24px;
+    }
+
+    .faq-item h3 {
+      font-size: 18px;
+    }
+
+    .quotes {
+      background: var(--soft);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .quote-card {
+      padding: 28px;
+    }
+
+    .quote-card p {
+      color: var(--graphite);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .quote-card strong {
+      display: block;
+      margin-top: 22px;
+      color: var(--navy);
+    }
+
+    .quote-card span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact {
+      padding-bottom: 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .contact-card {
+      padding: 30px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+    }
+
+    .contact-card h2 { color: var(--white); }
+    .contact-card p { color: #dbe8f7; }
+
+    .contact-lines {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-lines a,
+    .contact-lines span {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-link {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 50%;
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .icon-link svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    .icon-link:hover {
+      background: var(--orange);
+      color: #241500;
+      border-color: var(--orange);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      background: var(--white);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 138px;
+      resize: vertical;
+    }
+
+    .form-note {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 88px;
+      padding: 30px 0;
+      background: #101820;
+      color: #cbd5e1;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    footer .icon-link {
+      width: 38px;
+      height: 38px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 80;
+      width: 62px;
+      height: 62px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 18px 34px rgba(37, 211, 102, 0.32), 0 8px 18px rgba(16, 24, 32, 0.22);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .whatsapp-float::before {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      border: 1px solid rgba(37, 211, 102, 0.36);
+    }
+
+    .whatsapp-float svg {
+      width: 34px;
+      height: 34px;
+      fill: currentColor;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+      transform: translateY(-3px);
+      box-shadow: 0 22px 40px rgba(37, 211, 102, 0.38), 0 10px 22px rgba(16, 24, 32, 0.24);
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        min-height: auto;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+      }
+
+      .hero-inner,
+      .section-head,
+      .about-layout,
+      .faq-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner { min-height: auto; }
+
+      .benefit-grid,
+      .steps,
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav,
+      .section-inner,
+      .hero-inner,
+      .footer-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .brand img { width: 74px; }
+      .nav-links { gap: 16px; font-size: 13px; }
+      section { padding: 64px 0; }
+      .hero-inner { padding: 50px 0; }
+      h1 { font-size: 42px; }
+      .hero-copy { font-size: 17px; }
+
+      .benefit-grid,
+      .steps,
+      .news-grid,
+      .quote-grid,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        width: 56px;
+        height: 56px;
+      }
+
+      .whatsapp-float svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Transporte Tavolaro">
+        <img src="transporte-tavolaro-logo.svg" alt="Transporte Tavolaro">
+        <span>
+          <strong>Transporte Tavolaro</strong>
+          <span>Empresa familiar</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#funciona">Cómo funciona</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#preguntas">Preguntas</a>
+        <a class="nav-action" href="#contacto">Solicitar servicio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text-panel">
+          <p class="eyebrow">Distribución y transporte comercial</p>
+          <h1>Movemos lo que tu negocio necesita entregar.</h1>
+          <p class="hero-copy">
+            Soluciones de transporte para empresas, comercios y emprendedores. Atención directa, unidades ágiles y una empresa familiar con visión de crecimiento.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contacto">Solicitar servicio</a>
+            <a class="button secondary" href="#servicios">Ver soluciones</a>
+          </div>
+        </div>
+
+        <div class="hero-stats" aria-label="Datos principales de Transporte Tavolaro">
+          <div>
+            <strong>Logística</strong>
+            <span>Comercial y zonal</span>
+          </div>
+          <div>
+            <strong>Directa</strong>
+            <span>Atención directa</span>
+          </div>
+          <div>
+            <strong>Proyección</strong>
+            <span>Transporte integral</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="benefits" aria-labelledby="servicios-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Todo en un solo servicio</p>
+            <h2 id="servicios-title">Distribución, retiros y entregas para tu operación diaria.</h2>
+          </div>
+          <p>
+            Nos enfocamos en lo que realmente necesita moverse: mercadería, pedidos, productos livianos y medianos, recorridos comerciales y entregas programadas.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <div class="mark" aria-hidden="true"></div>
+            <h3>Entregas programadas</h3>
+            <p>Coordinamos días, horarios y recorridos para que tus entregas salgan con orden.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="mark" aria-hidden="true"></div>
+            <h3>Retiros comerciales</h3>
+            <p>Buscamos mercadería en proveedores, locales o depósitos y la trasladamos con cuidado.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="mark" aria-hidden="true"></div>
+            <h3>Reparto para negocios</h3>
+            <p>Soluciones para comercios y emprendedores que necesitan cumplir sin perder tiempo.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="mark" aria-hidden="true"></div>
+            <h3>Servicio recurrente</h3>
+            <p>Armamos una dinámica estable para clientes que necesitan transporte todas las semanas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="funciona" class="how" aria-labelledby="funciona-title">
+      <div class="section-inner">
+        <p class="section-label">Cómo funciona</p>
+        <div class="how-title">
+          <h2 id="funciona-title">Simple, rápido y sin complicaciones. Nosotros lo organizamos.</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <h3>Contacto</h3>
+            <p>Nos escribís y analizamos qué necesitás transportar, desde dónde y hacia dónde.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <h3>Coordinacion</h3>
+            <p>Definimos recorrido, horarios, volumen, frecuencia y condiciones del servicio.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <h3>Retiro y entrega</h3>
+            <p>Realizamos el traslado con comunicación directa y cuidado por la mercadería.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">4</span>
+            <h3>Seguimiento</h3>
+            <p>Buscamos mejorar cada recorrido para construir una relacion continua y confiable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="about" aria-labelledby="nosotros-title">
+      <div class="section-inner">
+        <div class="about-layout">
+          <div>
+            <p class="section-label">Más de nosotros</p>
+            <h2 id="nosotros-title">Una empresa familiar con compromiso profesional.</h2>
+            <p class="lead">
+              Transporte Tavolaro combina trato cercano, responsabilidad operativa y una mirada de largo plazo. Acompañamos a empresas, comercios y emprendedores que necesitan mover mercadería con orden, cuidado y cumplimiento.
+            </p>
+          </div>
+          <div class="about-panel">
+            <img src="transporte-tavolaro-logo.svg" alt="Logo Transporte Tavolaro">
+            <p>Cercanía familiar para atenderte bien. Mentalidad de empresa para cumplir y crecer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="news" aria-labelledby="experiencias-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Experiencias y novedades</p>
+            <h2 id="experiencias-title">Construyendo una marca de transporte desde el trabajo real.</h2>
+          </div>
+          <p>
+            Esta sección puede crecer con fotos de entregas, recorridos, clientes, nuevas unidades y avances de la empresa.
+          </p>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card">
+            <figure class="news-visual">
+              <img src="transporte-tavolaro-card-entrega-realista.png" alt="Entrega comercial de mercadería en un comercio">
+            </figure>
+            <div>
+              <span class="date">Servicio comercial</span>
+              <h3>Distribución urbana y zonal</h3>
+              <p>Trasladamos mercadería, pedidos y productos con recorridos organizados y respuesta ágil.</p>
+            </div>
+          </article>
+          <article class="news-card">
+            <figure class="news-visual">
+              <img src="transporte-tavolaro-card-organizacion-realista.png" alt="Organización de paquetes para distribución">
+            </figure>
+            <div>
+              <span class="date">Atención personalizada</span>
+              <h3>Empresas, comercios y emprendedores</h3>
+              <p>Trabajamos con clientes que necesitan entregas confiables, comunicación clara y trato directo.</p>
+            </div>
+          </article>
+          <article class="news-card">
+            <figure class="news-visual">
+              <img src="transporte-tavolaro-card-ruta-calida.png" alt="Ruta e infraestructura logística para transporte">
+            </figure>
+            <div>
+              <span class="date">Visión de crecimiento</span>
+              <h3>Transporte con mayor capacidad</h3>
+              <p>La marca se proyecta hacia servicios más amplios, con flota, rutas y soluciones integrales.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas" aria-labelledby="faq-title">
+      <div class="section-inner">
+        <div class="faq-layout">
+          <div>
+            <p class="section-label">Preguntas frecuentes</p>
+            <h2 id="faq-title">Lo importante antes de coordinar un servicio.</h2>
+            <p class="lead">
+              Dejamos claras las consultas básicas para que cada cliente entienda cómo trabajamos.
+            </p>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>¿Qué tipo de mercadería transportan?</h3>
+              <p>Productos livianos y medianos, pedidos comerciales, mercadería para comercios y entregas de emprendedores.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Hacen servicios programados?</h3>
+              <p>Sí. Podemos coordinar recorridos fijos, entregas semanales o retiros recurrentes según la necesidad del negocio.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Que zonas cubren?</h3>
+              <p>Trabajamos en cobertura local y zonal. Cada recorrido se coordina previamente según origen, destino y frecuencia.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Atienden empresas y emprendedores?</h3>
+              <p>Sí. El servicio está pensado para empresas, comercios, distribuidores chicos y emprendedores que necesitan entregar mejor.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quotes" aria-labelledby="clientes-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Recomendaciones</p>
+            <h2 id="clientes-title">Lo que buscamos que sientan nuestros clientes.</h2>
+          </div>
+          <p>
+            Estos testimonios son modelo para la web inicial. Cuando haya clientes reales, los reemplazamos por comentarios verdaderos.
+          </p>
+        </div>
+        <div class="quote-grid">
+          <article class="quote-card">
+            <p>"Necesitábamos organizar entregas para el local y tener alguien que responda. La diferencia fue el trato directo y la puntualidad."</p>
+            <strong>Comercio local</strong>
+            <span>Cliente de distribución programada</span>
+          </article>
+          <article class="quote-card">
+            <p>"Para un emprendimiento chico, poder coordinar retiros y entregas sin improvisar te cambia la semana."</p>
+            <strong>Emprendedor</strong>
+            <span>Envios comerciales y retiros</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact" aria-labelledby="contacto-title">
+      <div class="section-inner">
+        <div class="contact-layout">
+          <div class="contact-card">
+            <p class="section-label">Solicitar servicio</p>
+            <h2 id="contacto-title">Contanos qué necesitás mover.</h2>
+            <p>
+              Si tenés una consulta, escribinos. También podés contactarnos directamente por WhatsApp para coordinar más rápido.
+            </p>
+            <div class="contact-lines">
+              <div class="social-links" aria-label="Redes de contacto">
+                <a class="icon-link" href="https://wa.me/5492235239439?text=Hola%2C%20quiero%20consultar%20por%20un%20servicio%20de%20Transporte%20Tavolaro." target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.44 9.91-9.9C21.96 6.45 17.51 2 12.04 2Zm0 18.14h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 1 1 6.98 3.86Zm4.49-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>
+                </a>
+                <a class="icon-link" href="https://www.instagram.com/transportetavolaro/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                </a>
+              </div>
+              <span>Atención directa y coordinación flexible</span>
+            </div>
+          </div>
+
+          <form id="service-form" action="/api/contact" method="POST">
+            <label>
+              Nombre y apellido
+              <input type="text" name="nombre" placeholder="Tu nombre">
+            </label>
+            <label>
+              Teléfono
+              <input type="tel" name="telefono" placeholder="Tu número de contacto">
+            </label>
+            <label>
+              Empresa o comercio
+              <input type="text" name="empresa" placeholder="Nombre del negocio">
+            </label>
+            <label>
+              Tipo de servicio
+              <select name="servicio">
+                <option>Distribución comercial</option>
+                <option>Entrega programada</option>
+                <option>Retiro de mercadería</option>
+                <option>Servicio recurrente</option>
+                <option>Consulta general</option>
+              </select>
+            </label>
+            <label>
+              Mensaje / detalle del envío
+              <textarea name="mensaje" placeholder="Origen, destino, frecuencia y tipo de mercadería"></textarea>
+            </label>
+            <button class="button primary" type="submit">Solicitar servicio</button>
+            <p class="form-note" id="form-status">Tu consulta llega por correo y respondemos a la brevedad.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Transporte Tavolaro</span>
+      <span>Distribución y transporte para empresas, comercios y emprendedores.</span>
+      <div class="social-links" aria-label="Redes sociales">
+        <a class="icon-link" href="https://wa.me/5492235239439?text=Hola%2C%20quiero%20consultar%20por%20un%20servicio%20de%20Transporte%20Tavolaro." target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.44 9.91-9.9C21.96 6.45 17.51 2 12.04 2Zm0 18.14h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 1 1 6.98 3.86Zm4.49-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://www.instagram.com/transportetavolaro/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/5492235239439?text=Hola%2C%20quiero%20consultar%20por%20un%20servicio%20de%20Transporte%20Tavolaro." target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.44 9.91-9.9C21.96 6.45 17.51 2 12.04 2Zm0 18.14h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 1 1 6.98 3.86Zm4.49-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>
+  </a>
+  <script>
+    const serviceForm = document.querySelector("#service-form");
+    const formStatus = document.querySelector("#form-status");
+
+    serviceForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const submitButton = serviceForm.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+      formStatus.textContent = "Estamos enviando tu consulta.";
+
+      try {
+        const response = await fetch(serviceForm.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams(new FormData(serviceForm))
+        });
+
+        if (!response.ok) {
+          throw new Error("No se pudo enviar la solicitud.");
+        }
+
+        serviceForm.reset();
+        formStatus.textContent = "Solicitud enviada. Te vamos a responder a la brevedad.";
+      } catch (error) {
+        formStatus.textContent = "No se pudo enviar la consulta. Intentá nuevamente en unos minutos.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Solicitar servicio";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <rect width="1200" height="1200" fill="#ffffff"/>
+  <g transform="translate(0,20)">
+    <polygon points="265,145 705,145 668,250 535,250 450,550 295,550 382,250 230,250" fill="#001f4e"/>
+    <polygon points="760,145 955,145 918,250 724,250" fill="#ff9700"/>
+    <polygon points="565,305 925,305 890,405 770,405 700,640 535,640 607,405 525,405" fill="#333638"/>
+  </g>
+  <text x="600" y="830" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="122" font-weight="900" fill="#002150" letter-spacing="2">TAVOLARO</text>
+  <line x1="214" y1="905" x2="330" y2="905" stroke="#002150" stroke-width="8"/>
+  <line x1="870" y1="905" x2="986" y2="905" stroke="#002150" stroke-width="8"/>
+  <text x="600" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#333638" letter-spacing="22">TRANSPORTE</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="2000" height="2000">
+  <rect width="2000" height="2000" fill="#ffffff"/>
+  <g transform="translate(180,90)">
+    <polygon points="535,260 1235,260 1180,410 970,410 835,890 590,890 725,410 480,410" fill="#001f4e"/>
+    <polygon points="895,505 1440,505 1388,645 1210,645 1095,1040 850,1040 965,645 840,645" fill="#333638"/>
+    <polygon points="590,912 830,912 786,1067 546,1067" fill="#ff9700"/>
+  </g>
+  <text x="1000" y="1212" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="128" font-weight="900" fill="#002150" letter-spacing="3">TAVOLARO</text>
+  <text x="1000" y="1338" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#333638" letter-spacing="46">TRANSPORTE</text>
+</svg>
