@@ -940,10 +940,7 @@
             </div>
           </div>
 
-          <form action="https://formsubmit.co/tavolaropabloignacio@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Nueva solicitud desde Transporte Tavolaro">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+          <form id="service-form" action="/api/contact" method="POST">
             <label>
               Nombre y apellido
               <input type="text" name="nombre" placeholder="Tu nombre">
@@ -971,7 +968,7 @@
               <textarea name="mensaje" placeholder="Origen, destino, frecuencia y tipo de mercadería"></textarea>
             </label>
             <button class="button primary" type="submit">Solicitar servicio</button>
-            <p class="form-note">Tu consulta llega por correo y respondemos a la brevedad.</p>
+            <p class="form-note" id="form-status">Tu consulta llega por correo y respondemos a la brevedad.</p>
           </form>
         </div>
       </div>
@@ -992,5 +989,40 @@
       </div>
     </div>
   </footer>
+  <script>
+    const serviceForm = document.querySelector("#service-form");
+    const formStatus = document.querySelector("#form-status");
+
+    serviceForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const submitButton = serviceForm.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+      formStatus.textContent = "Estamos enviando tu consulta.";
+
+      try {
+        const response = await fetch(serviceForm.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams(new FormData(serviceForm))
+        });
+
+        if (!response.ok) {
+          throw new Error("No se pudo enviar la solicitud.");
+        }
+
+        serviceForm.reset();
+        formStatus.textContent = "Solicitud enviada. Te vamos a responder a la brevedad.";
+      } catch (error) {
+        formStatus.textContent = "No se pudo enviar la consulta. Intentá nuevamente en unos minutos.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Solicitar servicio";
+      }
+    });
+  </script>
 </body>
 </html>
