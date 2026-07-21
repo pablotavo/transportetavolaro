@@ -48,11 +48,11 @@ module.exports = async (req, res) => {
     },
     body: JSON.stringify({
       from: "Transporte Tavolaro <contacto@transportetavolaro.com>",
-      to: ["tavolaropabloignacio@gmail.com"],
+      to: ["contacto@transportetavolaro.com"],
       subject: "Nueva solicitud desde Transporte Tavolaro",
       text,
       html,
-      reply_to: "tavolaropabloignacio@gmail.com"
+      reply_to: "contacto@transportetavolaro.com"
     })
   });
 

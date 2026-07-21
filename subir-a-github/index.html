@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -1078,6 +1078,11 @@
 
         serviceForm.reset();
         formStatus.textContent = "Solicitud enviada. Te vamos a responder a la brevedad.";
+        if (typeof gtag === "function") {
+          gtag("event", "conversion", {
+            send_to: "AW-16801371185/rNJDCJ6h39McELGowss-"
+          });
+        }
       } catch (error) {
         formStatus.textContent = "No se pudo enviar la consulta. Intentá nuevamente en unos minutos.";
       } finally {
